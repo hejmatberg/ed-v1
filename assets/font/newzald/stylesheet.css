@@ -1,0 +1,72 @@
+@font-face {
+    font-family: 'Newzald Test';
+    src: url('NewzaldTest-MediumItalic.woff2') format('woff2'),
+        url('NewzaldTest-MediumItalic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Newzald Test';
+    src: url('NewzaldTest-Black.woff2') format('woff2'),
+        url('NewzaldTest-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Newzald Test';
+    src: url('NewzaldTest-BlackItalic.woff2') format('woff2'),
+        url('NewzaldTest-BlackItalic.woff') format('woff');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Newzald Test';
+    src: url('NewzaldTest-BookItalic.woff2') format('woff2'),
+        url('NewzaldTest-BookItalic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Newzald Test';
+    src: url('NewzaldTest-Bold.woff2') format('woff2'),
+        url('NewzaldTest-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Newzald Test';
+    src: url('NewzaldTest-Book.woff2') format('woff2'),
+        url('NewzaldTest-Book.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Newzald Test';
+    src: url('NewzaldTest-BoldItalic.woff2') format('woff2'),
+        url('NewzaldTest-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Newzald Test';
+    src: url('NewzaldTest-Medium.woff2') format('woff2'),
+        url('NewzaldTest-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+

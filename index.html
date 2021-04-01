@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="assets/css/main.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="assets/js/three.min.js"></script>
+  <script type="text/javascript">
+  setTimeout(function() { 
+      $('body').removeClass('loading');
+    }, 40000);
+  </script>
+  <script src="assets/js/main.js"></script>
+  <script>document.documentElement.className="js";var supportsCssVars=function(){var e,t=document.createElement("style");return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};supportsCssVars()||alert("Please view this demo in a modern browser that supports CSS Variables.");</script>
+</head>
+
+
+<body class="loading">
+
+  <div id="container" class="container">
+    <span class="overlay"></span>
+    <div class="fr1">
+       <svg class="complete" width="300" height="300" viewport="0 0 150 150" xmlns="https://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="grad">
+          <stop offset="0%" stop-color="#034f15"></stop>
+          <stop offset="100%" stop-color="#da6f64"></stop>
+          <!-- <stop offset="200%" stop-color="#D99E94"></stop> -->
+        </linearGradient>
+        </defs>
+        <circle cx="150" cy="150" r="150" stroke-dasharray="2,5" d="M5 40 l215 0"></circle>
+        <circle class="progress-bar" cx="150" cy="150" r="150"></circle>
+      </svg>
+       <div id="particles-1" class="centered"></div>
+        <img class="main-logo" src="assets/img/logo_UNFPA-white.png" />
+        <div class="inner-container centered">
+          <h2>Every 2 minutes, a woman dies giving birth</h2>
+          <img class="scroll-icon" src="assets/img/icon_scroll.png" />
+        </div>
+        <div class="light-footer">
+          <p>safe birth even here ® 2018 . Privacy Policy and Terms of Use . Sponsored by</p>
+          <img src="assets/img/logo_jnj-white.png" />
+        </div>
+    </div>
+    <div id="fr2" class="fr2">
+      <div class="inner-container no-max">
+        <h2 class="centered">That’s 830 women every day.</h2>
+        <a class="centered" id="next">Next</a>
+      </div>
+    </div>
+  
+  </div>
+
+<div id="timer" class="centered">
+<p><span class="timer-inner">2:00</span></p>
+</div>
+
+<div class="page__container">
+  <div class="top-banner">
+    <img class="centered" src="assets/img/icon_liberia.png" />
+    <h1 class="centered">Liberia</h1>
+    <a href="#sec2"><img class="arrow-icon centered" src="assets/img/icon_arrow.png" /></a>
+  </div>
+  <div id="sec2" class="">
+    <div id="moveA" class="content__inner">
+      <h2>I can work to save my people.</h2>
+      <p class="content__sm">Yamah, a midwife and supervisor of a maternal health clinic</p>
+    </div>
+    <div class="fixed-bg right"></div>
+  </div>
+  <div id="sec3" class="fixed-bg">
+    <h3 class="centered">Yamah risked her own life to deliver babies during the Ebola outbreak.</h3>
+  </div>
+  
+  <div id="sec4">
+    <p>The epidemic devastated Liberia’s fragile healthcare system. Maternal deaths surged. But <span style="color:#D99E94;">even here</span>, midwives like Yamah persevered in tending to mothers and their newborns. </p>
+    <div class="fixed-bg left"></div>
+  </div>
+  <div id="sec5" class="">
+    <div class="video">
+      <video controls poster="assets/img/video_poster.png">
+        <source src="" type="video/mp4">
+      </video>
+    </div>
+  </div>
+
+  <div id="sec6" class="grid__item grid__item--bg theme-3">
+    <div class="grid__item-img" data-displacement="assets/img/img-transition.png" data-intensity="0.2" data-speedIn="1.6" data-speedOut="1.6">
+      <img class="primary-img" src="assets/img/patient.png" alt="Image"/>
+      <img class="secondary-img" src="assets/img/woman-at-work.png" alt="Image"/>
+    </div>
+    <div class="centered content">
+     <p class="">With support from Johnson Johnson, UNFPA is working to equip midwives with the skills they need to ensure safe birth.</p>
+     <div class="swap-btns">
+        <p id="primary" class="primary content__sm active">equipped</p>
+        <p id="secondary" class="secondary content__sm">unequipped<br>clinic</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="sec7">
+    <div class="circle-container centered">
+      <a href="#sec8"><div class="circle">Safe birth starts here</div></a>
+    </div>
+  </div>
+
+  <div id="sec8">
+    <p class="content__sm">See other stories</p>
+    <div class="vertical-line"></div>
+    <div class="columns">
+      <div class="col__container">
+        <a class="fixed-bg left" href="#"></a>
+        <h3 class="centered">Kenya</h3>
+      </div>
+      <div class="col__container">
+      <a href="#" class="fixed-bg right"></a>
+      <h3 class="centered">Liberia</h3>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="assets/js/imagesloaded.pkgd.min.js"></script>
+<script src="assets/js/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
+<script src="assets/js/hover.js"></script>
+
+  <!-- vertex shader -->
+  <script id="vertex-shader" type="x-shader/x-vertex">
+  attribute vec2 a_position;
+  attribute vec2 a_texCoord;
+  varying vec2 v_texCoord;
+  uniform vec2 u_resolution;
+  varying vec2 v_resolution;
+
+  void main() {
+     vec2 clipSpace = (a_position / u_resolution) * 2.0 - 1.0;
+     gl_Position = vec4(clipSpace * vec2(1, -1), 0, 1);
+     v_texCoord = a_texCoord;
+     v_resolution = u_resolution;
+  }
+  </script>
+
+  <!-- fragment shader -->
+  <script id="fragment-shader" type="x-shader/x-fragment">
+  precision mediump float;
+  uniform sampler2D u_image;
+  uniform vec2 u_mouse;
+  varying vec2 v_resolution;
+  varying vec2 v_texCoord;
+
+  void main() {
+    vec2 res = gl_FragCoord.xy / v_resolution;
+    vec4 color = texture2D(u_image, v_texCoord);
+    gl_FragColor = color * vec4(u_mouse.y,res.y,u_mouse.x,1) ;
+  }
+  </script>
+
+
+    <script>
+      imagesLoaded( document.querySelectorAll('img'), () => {
+        document.body.classList.remove('loading');
+      });
+
+      Array.from(document.querySelectorAll('.grid__item-img')).forEach((el) => {
+        const imgs = Array.from(el.querySelectorAll('img'));
+        new hoverEffect({
+          parent: el,
+          intensity: el.dataset.intensity || undefined,
+          speedIn: el.dataset.speedin || undefined,
+          speedOut: el.dataset.speedout || undefined,
+          easing: el.dataset.easing || undefined,
+          hover: el.dataset.hover || undefined,
+          image1: imgs[0].getAttribute('src'),
+          image2: imgs[1].getAttribute('src'),
+          displacementImage: el.dataset.displacement
+        });
+      });
+    </script>
+
+
+</body>
+</html>

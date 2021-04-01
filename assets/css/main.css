@@ -1,0 +1,531 @@
+/* Breakpoints */
+@font-face {
+  font-family: 'Newzald-Book';
+  src: url("../font/newzald/NewzaldTest-Book.woff2") format("woff2"), url("../font/newzald/NewzaldTest-Book.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; }
+@font-face {
+  font-family: 'Newzald-Md';
+  src: url("../font/newzald/NewzaldTest-Medium.woff2") format("woff2"), url("../font/newzald/NewzaldTest-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal; }
+html, * {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth; }
+
+body {
+  font-family: 'Newzald-Book';
+  font-size: 18px;
+  line-height: 23px;
+  position: relative; }
+
+.loading::before {
+  content: '';
+  position: fixed;
+  z-index: 100000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white; }
+
+.loading::after {
+  content: '';
+  position: fixed;
+  z-index: 100000;
+  top: 50%;
+  left: 50%;
+  width: 60px;
+  height: 60px;
+  margin: -30px 0 0 -30px;
+  pointer-events: none;
+  border-radius: 50%;
+  opacity: 0.4;
+  background: black;
+  animation: loaderAnim 0.7s linear infinite alternate forwards; }
+
+@keyframes loaderAnim {
+  to {
+    opacity: 1;
+    transform: scale3d(0.5, 0.5, 1); } }
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); }
+
+h1 {
+  font-size: 80px;
+  line-height: 80px; }
+
+h2 {
+  font-size: 60px;
+  line-height: 60px; }
+
+h3 {
+  font-size: 40px;
+  line-height: 42px; }
+
+#particles-1 {
+  position: absolute;
+  max-width: 750px;
+  width: 100%;
+  height: 100%; }
+
+.content__sm {
+  font-size: 14px;
+  line-height: 17px;
+  max-width: 80%; }
+
+.fr1, .fr2 {
+  position: fixed;
+  width: 100%;
+  height: 100%; }
+
+.fr2 {
+  display: none; }
+  .fr2 canvas {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; }
+  .fr2 .inner-container.no-max {
+    max-width: none;
+    padding: 0 3rem; }
+    .fr2 .inner-container.no-max h2 {
+      font-size: 60pt;
+      margin-top: 0; }
+    .fr2 .inner-container.no-max #next {
+      top: 80%;
+      padding: 0 0;
+      height: 80px;
+      width: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 0; }
+      .fr2 .inner-container.no-max #next:hover:before, .fr2 .inner-container.no-max #next:hover:after {
+        border: 1px solid #cccccc;
+        content: "";
+        width: 100%;
+        display: block;
+        position: absolute;
+        height: auto;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        border-radius: 100%;
+        transform-origin: center center;
+        opacity: 0;
+        box-sizing: border-box; }
+      .fr2 .inner-container.no-max #next:hover:before {
+        animation: 1s .11s pulse2 infinite linear; }
+      .fr2 .inner-container.no-max #next:hover::after {
+        animation: 1s pulse infinite linear; }
+
+.main-logo {
+  float: right;
+  margin: 2rem;
+  width: 60px; }
+
+.inner-container {
+  max-width: 540px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  .inner-container h2 {
+    font-family: 'Newzald-Book';
+    margin-top: 3rem;
+    font-size: 46px;
+    width: 100%;
+    text-align: center;
+    color: white; }
+  .inner-container .scroll-icon {
+    margin-top: 1rem;
+    max-width: 40px; }
+  .inner-container a {
+    color: white;
+    text-decoration: none;
+    font-family: 'Newzald-Book';
+    border-bottom: 2px solid;
+    font-size: 30pt;
+    padding-top: 6rem;
+    cursor: pointer; }
+
+.light-footer {
+  text-align: center;
+  width: 100%;
+  padding: 1.5rem;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 12px; }
+  .light-footer p {
+    margin-right: .5rem; }
+
+.container {
+  top: 0;
+  position: relative;
+  width: 100%;
+  height: 300vh;
+  min-height: 100vh;
+  flex-flow: row;
+  margin: 0 auto;
+  justify-content: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-image: url("../img/primary-img.jpg"); }
+  .container.active {
+    display: flex; }
+  .container .overlay {
+    z-index: 2;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 125vmax;
+    height: 125vmax;
+    border-radius: 100%;
+    /*	  	background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);*/
+    background-color: black;
+    box-shadow: 0 0 20px pink;
+    transition: all 900ms cubic-bezier(0.49, 0.23, 0, 0.99);
+    opacity: 0; }
+  .container svg {
+    opacity: 1;
+    transition: all 900ms;
+    position: sticky;
+    transform: rotate(-90deg); }
+    .container svg circle {
+      stroke: rgba(255, 255, 255, 0.2);
+      stroke-width: 2px;
+      stroke-linecap: round;
+      fill: transparent; }
+      .container svg circle.progress-bar {
+        stroke: url(#grad);
+        transition: stroke-dashoffset 0 ease-in-out;
+        filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.2)); }
+  .container.completed .overlay {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1; }
+  .container.completed svg {
+    opacity: 0;
+    transition: all 900ms; }
+  .container.hide:before {
+    background-color: rgba(0, 0, 0, 0.3);
+    transition: .2s; }
+
+#timer {
+  z-index: 2;
+  opacity: 0;
+  position: fixed !important;
+  color: white;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 2px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 800ms;
+  transition-delay: 0;
+  font-size: 50pt; }
+  #timer.active {
+    opacity: 1;
+    transition: all 1000ms;
+    transition-delay: 600ms;
+    /*animation-name: move;
+    animation-duration: 2s;
+    animation-delay: 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode:forwards;*/ }
+@keyframes move {
+  0% {
+    top: 50%;
+    width: 200px;
+    height: 200px;
+    font-size: 30pt; }
+  100% {
+    top: 10%;
+    width: 100px;
+    height: 100px;
+    font-size: 20pt; } }
+.page__container {
+  position: fixed;
+  bottom: -100vh;
+  height: 100%;
+  width: 100%; }
+  .page__container .top-banner {
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right;
+    background-image: linear-gradient(black, black), url("../img/woman-at-work.png");
+    background-blend-mode: saturation;
+    min-height: 100vh;
+    position: relative; }
+    .page__container .top-banner img {
+      display: none;
+      top: 30%; }
+    .page__container .top-banner h1 {
+      color: white;
+      width: fit-content;
+      border-bottom: 2px solid;
+      top: 120vh; }
+    .page__container .top-banner .arrow-icon {
+      display: none;
+      top: auto;
+      bottom: 3rem; }
+
+#sec2 {
+  padding-top: 10rem;
+  padding-bottom: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+  min-height: 80vh;
+  animation: 1.5s ease 0s 1 normal forwards running slide-up;
+  opacity: 0; }
+  #sec2 .content__inner {
+    position: relative;
+    padding-left: 3rem;
+    width: 100%;
+    max-width: 410px;
+    left: 0;
+    animation: 1.5s ease 0s 1 normal forwards running slide-up;
+    opacity: 0; }
+    #sec2 .content__inner h2 {
+      padding-bottom: 1rem; }
+  #sec2 .fixed-bg {
+    background-image: url("../img/woman-closeup.png");
+    width: 60%;
+    height: 60vh;
+    background-attachment: unset; }
+
+.fixed-bg {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center; }
+
+#sec3 {
+  position: relative;
+  height: 100vh;
+  margin: 5rem 0;
+  background-image: url("../img/women-at-work.png");
+  top: 0;
+  width: 100%;
+  z-index: 0;
+  background-size: cover; }
+  #sec3 h3 {
+    max-width: 430px;
+    color: white;
+    text-align: center; }
+  #sec3 img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%; }
+
+#sec4 {
+  min-height: 100vh;
+  height: 100%;
+  margin-bottom: 5rem;
+  position: relative; }
+  #sec4 p {
+    width: 100%;
+    max-width: 540px;
+    margin-left: 50%;
+    position: relative;
+    margin-right: 3rem;
+    padding-bottom: 5rem;
+    animation: 1.5s ease 0s 1 normal forwards running slide-up;
+    opacity: 0;
+    font-size: 40px;
+    line-height: 42px; }
+  #sec4 img {
+    width: 60%; }
+  #sec4 .fixed-bg {
+    background-image: url("../img/woman-with-child.png");
+    height: 60vh;
+    width: 60%;
+    background-attachment: unset; }
+
+@keyframes slide-up {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate(0px, 100px);
+    transform: translate(0px, 100px); }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate(0px, 0px);
+    transform: translate(0px, 0px); } }
+#sec5 {
+  padding: 5rem 0; }
+  #sec5 .video {
+    text-align: center; }
+    #sec5 .video video {
+      max-width: 1000px;
+      width: 100%; }
+
+#sec6 {
+  margin-top: 5rem;
+  color: white;
+  text-align: center;
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+  width: 100vw;
+  height: 40vmax;
+  width: 100%; }
+  #sec6 .grid__item-img {
+    display: block;
+    height: 100%;
+    width: 100vw; }
+    #sec6 .grid__item-img canvas {
+      height: 100%;
+      display: inline-block; }
+    #sec6 .grid__item-img img {
+      height: 100%;
+      display: block;
+      opacity: 0; }
+      #sec6 .grid__item-img img:nth-child(2) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        transition: opacity 0.3s; }
+  #sec6 .content {
+    max-width: 540px; }
+    #sec6 .content .swap-btns {
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      padding-top: 2rem; }
+      #sec6 .content .swap-btns p {
+        text-align: center;
+        color: white;
+        border: 1px solid;
+        opacity: .4;
+        cursor: pointer;
+        border-radius: 50%;
+        height: 100px;
+        width: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 1rem; }
+        #sec6 .content .swap-btns p.active {
+          border: 2px solid;
+          opacity: 1; }
+
+.js .grid__item-img img {
+  display: none !important; }
+
+#sec7 {
+  position: relative;
+  padding: 5rem 0;
+  height: 600px; }
+  #sec7 .circle-container a {
+    text-decoration: none;
+    color: inherit; }
+  #sec7 .circle-container .circle {
+    position: relative;
+    height: 160px;
+    width: 160px;
+    background: white;
+    border-radius: 100%;
+    font-size: 40px;
+    line-height: 42px;
+    text-align: center;
+    display: flex;
+    align-items: center; }
+    #sec7 .circle-container .circle:before, #sec7 .circle-container .circle:after {
+      border: 1px solid #cccccc;
+      content: "";
+      width: 100%;
+      display: block;
+      position: absolute;
+      height: auto;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      border-radius: 100%;
+      transform-origin: center center;
+      opacity: 0;
+      box-sizing: border-box; }
+    #sec7 .circle-container .circle:before {
+      animation: 1s .11s pulse2 infinite linear; }
+    #sec7 .circle-container .circle::after {
+      animation: 1s pulse infinite linear; }
+
+@keyframes pulse {
+  0% {
+    transform: scale(2);
+    opacity: .2; }
+  100% {
+    transform: scale(2.3);
+    opacity: 0; } }
+@keyframes pulse2 {
+  0% {
+    transform: scale(1.5);
+    opacity: .5; }
+  100% {
+    transform: scale(1.8);
+    opacity: 0; } }
+#sec8 {
+  position: relative; }
+  #sec8 .content__sm {
+    color: #A4A4A4;
+    margin: 0 auto;
+    text-align: center;
+    padding-bottom: 3rem; }
+  #sec8 .vertical-line {
+    position: absolute;
+    left: 50%;
+    height: 25px;
+    border-left: 1px solid #A4A4A4;
+    margin-left: -1px;
+    top: 1.5rem; }
+  #sec8 .columns {
+    display: flex;
+    height: 400px; }
+    #sec8 .columns .col__container {
+      width: 50%;
+      overflow: hidden;
+      position: relative;
+      color: white; }
+      #sec8 .columns .col__container:hover .fixed-bg {
+        transform: scale(1.2); }
+      #sec8 .columns .col__container h3 {
+        color: white;
+        cursor: pointer; }
+      #sec8 .columns .col__container .fixed-bg {
+        cursor: pointer;
+        width: 100%;
+        height: 100%;
+        background-attachment: unset;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 1s;
+        text-decoration: none; }
+        #sec8 .columns .col__container .fixed-bg.left {
+          background-image: url("../img/women-with-child.jpg"); }
+        #sec8 .columns .col__container .fixed-bg.right {
+          background-image: url("../img/woman-with-child.jpg"); }
+
+/*# sourceMappingURL=main.css.map */
