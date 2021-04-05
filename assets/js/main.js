@@ -1,12 +1,10 @@
-
-
 $(document).ready(function(){
 
-
+// Particles
 particlesJS("particles-1", {
   "particles": {
     "number": {
-      "value": 1000,
+      "value": 600,
       "density": {
         "enable": false,
         "value_area": 300
@@ -18,7 +16,7 @@ particlesJS("particles-1", {
     "shape": {
       "type": "image",
       "image": {
-        "src": "assets/img/particle.png",
+        "src": "assets/img/sm/particle.png",
         "width": 25,
         "height": 25
       }
@@ -63,8 +61,7 @@ particlesJS("particles-1", {
         "mode": "repulse"
       },
       "onclick": {
-        "enable": true,
-        "mode": "push"
+        "enable": false,
       },
       "resize": true
     },
@@ -84,7 +81,7 @@ particlesJS("particles-1", {
   "retina_detect": true
 });
 
- // Helper function to compile webGL program
+ // Frame 2 WEBGL hover
   createWebGLProgram = function(ctx, vertexShaderSource, fragmentShaderSource) {
 
     this.ctx = ctx;
@@ -108,7 +105,7 @@ particlesJS("particles-1", {
 
   var image = new Image();
   image.crossOrigin = "Anonymous";
-  image.src = "assets/img/secondary-img.jpg";
+  image.src = "assets/img/lg/secondary-img.jpg";
   
   document.querySelector('#fr2').appendChild(image);
 
@@ -133,7 +130,6 @@ particlesJS("particles-1", {
     } catch(e) {}
 
     if (!ctx) {
-      // You could fallback to 2D methods here
       alert("Sorry, it seems WebGL is not available.");
     }
 
@@ -141,14 +137,12 @@ particlesJS("particles-1", {
     var vertexShaderSource = document.getElementById("vertex-shader").text;
     var program = createWebGLProgram(ctx, vertexShaderSource, fragmentShaderSource);
 
-    // Expose canvas width and height to shader via u_resolution
     var resolutionLocation = ctx.getUniformLocation(program, "u_resolution");
     ctx.uniform2f(resolutionLocation, canvas.width, canvas.height);
 
     var mousePosition = ctx.getUniformLocation(program, "u_mouse");
     ctx.uniform2f(mousePosition, .5,.5);
 
-    // Position rectangle vertices (2 triangles)
     var positionLocation = ctx.getAttribLocation(program, "a_position");
     var buffer = ctx.createBuffer();
     ctx.bindBuffer(ctx.ARRAY_BUFFER, buffer);
@@ -162,7 +156,6 @@ particlesJS("particles-1", {
     ctx.enableVertexAttribArray(positionLocation);
     ctx.vertexAttribPointer(positionLocation, 2, ctx.FLOAT, false, 0, 0);
 
-    //Position texture
     var texCoordLocation = ctx.getAttribLocation(program, "a_texCoord");
     var texCoordBuffer = ctx.createBuffer();
     ctx.bindBuffer(ctx.ARRAY_BUFFER, texCoordBuffer);
@@ -176,18 +169,14 @@ particlesJS("particles-1", {
     ctx.enableVertexAttribArray(texCoordLocation);
     ctx.vertexAttribPointer(texCoordLocation, 2, ctx.FLOAT, false, 0, 0);
 
-    // Create a texture.
     var texture = ctx.createTexture();
     ctx.bindTexture(ctx.TEXTURE_2D, texture);
-    // Set the parameters so we can render any size image.
     ctx.texParameteri(ctx.TEXTURE_2D, ctx.TEXTURE_WRAP_S, ctx.CLAMP_TO_EDGE);
     ctx.texParameteri(ctx.TEXTURE_2D, ctx.TEXTURE_WRAP_T, ctx.CLAMP_TO_EDGE);
     ctx.texParameteri(ctx.TEXTURE_2D, ctx.TEXTURE_MIN_FILTER, ctx.NEAREST);
-    ctx.texParameteri(ctx.TEXTURE_2D, ctx.TEXTURE_MAG_FILTER, ctx.NEAREST);
-    // Load the image into the texture.
+
     ctx.texImage2D(ctx.TEXTURE_2D, 0, ctx.RGBA, ctx.RGBA, ctx.UNSIGNED_BYTE, image);
 
-    // Draw the rectangle.
     ctx.drawArrays(ctx.TRIANGLES, 0, 6);
 
     canvas.addEventListener('mousemove', function(evt) {
@@ -198,14 +187,13 @@ particlesJS("particles-1", {
           y: (evt.clientY - rect.top) / canvas.height
         };
       })(canvas, evt);
-      // Expose local mouse coords
       ctx.uniform2f(mousePosition, mousePos.x,  mousePos.y);
       ctx.drawArrays(ctx.TRIANGLES, 0, 6);
     });
   }
 
 
-
+// Scroll function
   var cancel = false;
 
   window.onload = function() {
@@ -213,7 +201,6 @@ particlesJS("particles-1", {
     const container = document.querySelector('.container');
     const svg = document.querySelector('svg');
     const progressBar = document.querySelector('.progress-bar');
-    // const pct = document.querySelector('.pct');
     const totalLength = progressBar.getTotalLength();
       
     setTopValue(svg);
@@ -257,7 +244,6 @@ function setProgress(container, progressBar, totalLength) {
     $('#timer').addClass('active');
     
     setTimeout(function(){
-      // $(container).css('background-image','url("assets/img/secondary-img.jpg")');
       $('.fr2').fadeIn();
       
       countdown();
@@ -270,7 +256,7 @@ function setProgress(container, progressBar, totalLength) {
         },900);
 
       setTimeout(function(){
-        $('.overlay').fadeOut(3000);
+        $('.overlay').fadeOut(2500);
                
       }, 800);
    }, 800);
@@ -279,7 +265,7 @@ function setProgress(container, progressBar, totalLength) {
   } else {
 
     $('.overlay').show();
-    $(container).css('background-image','url("assets/img/primary-img.jpg")');
+    $(container).css('background-image','url("assets/img/lg/primary-img.jpg")');
     $('#timer').css({
       top :'50%',
       height :'300px',
@@ -298,8 +284,7 @@ function setProgress(container, progressBar, totalLength) {
   progressBar.style.strokeDashoffset = totalLength - totalLength * percentage;  
 }
 
-
-
+// Timer
 var interval;
 function countdown() {
   clearInterval(interval);
@@ -323,7 +308,7 @@ function countdown() {
 
 };
 
-
+// Transition from frame 2
 var containerHeight = $('.container').height();
 
 $('#next').click(function(){
@@ -357,6 +342,7 @@ $('#next').click(function(){
   }, 700);
   
 });
+
 $(document).scroll(function(){
     windowScroll()
 });
@@ -365,24 +351,6 @@ function windowScroll(){
 
   $("#moveA").css({"top": 230 - st * 0.3 + "px"});
  }
-
-
-// $('.swap-btns p').hover(function(){
-//   if($(this).hasClass('hide')){
-//     $(this).removeClass('hide');
-//     $(this).siblings().addClass('hide');
-//     updateBg();
-//   };
-// });
-
-// function updateBg(){
-// if($('.secondary').hasClass('hide')){
-//   $('#sec6').css('background-image','url("assets/img/patient.png")');
-// } else if($('.primary').hasClass('hide')){
-//   $('#sec6').css('background-image','url("assets/img/women-at-work.png"');
-// }
-// }
-
 
 
 });

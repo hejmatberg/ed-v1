@@ -10,6 +10,26 @@
   src: url("../font/newzald/NewzaldTest-Medium.woff2") format("woff2"), url("../font/newzald/NewzaldTest-Medium.woff") format("woff");
   font-weight: 500;
   font-style: normal; }
+h1 {
+  font-size: 80px;
+  line-height: 80px; }
+  @media screen and (max-width: 768px) {
+    h1 {
+      font-size: 50px;
+      line-height: 50px; } }
+
+h2 {
+  font-size: 60px;
+  line-height: 60px; }
+
+h3 {
+  font-size: 40px;
+  line-height: 43px; }
+  @media screen and (max-width: 768px) {
+    h3 {
+      font-size: 30px;
+      line-height: 33px; } }
+
 html, * {
   box-sizing: border-box;
   padding: 0;
@@ -58,18 +78,6 @@ body {
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%); }
 
-h1 {
-  font-size: 80px;
-  line-height: 80px; }
-
-h2 {
-  font-size: 60px;
-  line-height: 60px; }
-
-h3 {
-  font-size: 40px;
-  line-height: 42px; }
-
 #particles-1 {
   position: absolute;
   max-width: 750px;
@@ -80,96 +88,6 @@ h3 {
   font-size: 14px;
   line-height: 17px;
   max-width: 80%; }
-
-.fr1, .fr2 {
-  position: fixed;
-  width: 100%;
-  height: 100%; }
-
-.fr2 {
-  display: none; }
-  .fr2 canvas {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; }
-  .fr2 .inner-container.no-max {
-    max-width: none;
-    padding: 0 3rem; }
-    .fr2 .inner-container.no-max h2 {
-      font-size: 60pt;
-      margin-top: 0; }
-    .fr2 .inner-container.no-max #next {
-      top: 80%;
-      padding: 0 0;
-      height: 80px;
-      width: 80px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-bottom: 0; }
-      .fr2 .inner-container.no-max #next:hover:before, .fr2 .inner-container.no-max #next:hover:after {
-        border: 1px solid #cccccc;
-        content: "";
-        width: 100%;
-        display: block;
-        position: absolute;
-        height: auto;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        border-radius: 100%;
-        transform-origin: center center;
-        opacity: 0;
-        box-sizing: border-box; }
-      .fr2 .inner-container.no-max #next:hover:before {
-        animation: 1s .11s pulse2 infinite linear; }
-      .fr2 .inner-container.no-max #next:hover::after {
-        animation: 1s pulse infinite linear; }
-
-.main-logo {
-  float: right;
-  margin: 2rem;
-  width: 60px; }
-
-.inner-container {
-  max-width: 540px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center; }
-  .inner-container h2 {
-    font-family: 'Newzald-Book';
-    margin-top: 3rem;
-    font-size: 46px;
-    width: 100%;
-    text-align: center;
-    color: white; }
-  .inner-container .scroll-icon {
-    margin-top: 1rem;
-    max-width: 40px; }
-  .inner-container a {
-    color: white;
-    text-decoration: none;
-    font-family: 'Newzald-Book';
-    border-bottom: 2px solid;
-    font-size: 30pt;
-    padding-top: 6rem;
-    cursor: pointer; }
-
-.light-footer {
-  text-align: center;
-  width: 100%;
-  padding: 1.5rem;
-  position: absolute;
-  bottom: 0;
-  display: flex;
-  justify-content: center;
-  align-items: end;
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 12px; }
-  .light-footer p {
-    margin-right: .5rem; }
 
 .container {
   top: 0;
@@ -184,7 +102,10 @@ h3 {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-  background-image: url("../img/primary-img.jpg"); }
+  background-image: url("../img/lg/primary-img.jpg"); }
+  @media screen and (max-width: 768px) {
+    .container {
+      background-position: left center; } }
   .container.active {
     display: flex; }
   .container .overlay {
@@ -203,9 +124,11 @@ h3 {
     opacity: 0; }
   .container svg {
     opacity: 1;
+    overflow: visible;
     transition: all 900ms;
     position: sticky;
-    transform: rotate(-90deg); }
+    transform: rotate(-90deg);
+    z-index: 2; }
     .container svg circle {
       stroke: rgba(255, 255, 255, 0.2);
       stroke-width: 2px;
@@ -243,12 +166,7 @@ h3 {
   #timer.active {
     opacity: 1;
     transition: all 1000ms;
-    transition-delay: 600ms;
-    /*animation-name: move;
-    animation-duration: 2s;
-    animation-delay: 2s;
-    animation-iteration-count: 1;
-    animation-fill-mode:forwards;*/ }
+    transition-delay: 600ms; }
 @keyframes move {
   0% {
     top: 50%;
@@ -260,6 +178,133 @@ h3 {
     width: 100px;
     height: 100px;
     font-size: 20pt; } }
+.fr1, .fr2 {
+  position: fixed;
+  width: 100%;
+  height: 100%; }
+
+.fr1 {
+  padding: 3rem; }
+  @media screen and (max-width: 992px) {
+    .fr1 {
+      padding: 2rem; } }
+  .fr1 .main-logo {
+    float: right;
+    width: 60px; }
+  .fr1 .inner-container {
+    max-width: 540px;
+    width: 100%;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem; }
+    @media screen and (max-width: 992px) {
+      .fr1 .inner-container {
+        padding: 2rem; } }
+    .fr1 .inner-container h2 {
+      font-family: 'Newzald-Book';
+      margin-top: 3rem;
+      font-size: 46px;
+      width: 100%;
+      text-align: center;
+      color: white; }
+      @media screen and (min-width: 480px) {
+        .fr1 .inner-container h2 {
+          font-size: 36px;
+          line-height: 39px; } }
+    .fr1 .inner-container .scroll-icon {
+      margin-top: 1rem;
+      max-width: 40px; }
+    .fr1 .inner-container a {
+      color: white;
+      text-decoration: none;
+      font-family: 'Newzald-Book';
+      border-bottom: 2px solid;
+      font-size: 30pt;
+      padding-top: 6rem;
+      cursor: pointer; }
+  .fr1 .light-footer {
+    text-align: center;
+    width: 100%;
+    padding: 3rem 0;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: end;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 12px; }
+    @media screen and (max-width: 480px) {
+      .fr1 .light-footer {
+        flex-direction: column; } }
+    @media screen and (max-width: 992px) {
+      .fr1 .light-footer {
+        padding: 2rem 0; } }
+    .fr1 .light-footer p {
+      margin-right: .5rem; }
+
+.fr2 {
+  display: none; }
+  .fr2 canvas {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; }
+  .fr2 .inner-container.no-max {
+    max-width: none;
+    padding: 0 3rem;
+    width: 100%;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    .fr2 .inner-container.no-max h2 {
+      font-size: 60pt;
+      padding: 0 3rem;
+      color: white;
+      margin-top: 0;
+      font-family: 'Newzald-Book';
+      width: 100%;
+      text-align: center; }
+      @media screen and (max-width: 768px) {
+        .fr2 .inner-container.no-max h2 {
+          font-size: 40pt;
+          padding: 0 2rem; } }
+    .fr2 .inner-container.no-max #next {
+      color: white;
+      text-decoration: none;
+      font-family: 'Newzald-Book';
+      font-size: 30pt;
+      cursor: pointer;
+      top: 80%;
+      padding: 0 0;
+      height: 80px;
+      width: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 0; }
+      .fr2 .inner-container.no-max #next:hover:before, .fr2 .inner-container.no-max #next:hover:after {
+        border: 1px solid #cccccc;
+        content: "";
+        width: 100%;
+        display: block;
+        position: absolute;
+        height: auto;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        border-radius: 100%;
+        transform-origin: center center;
+        opacity: 0;
+        box-sizing: border-box; }
+      .fr2 .inner-container.no-max #next:hover:before {
+        animation: 1s .11s pulse2 infinite linear; }
+      .fr2 .inner-container.no-max #next:hover::after {
+        animation: 1s pulse infinite linear; }
+
 .page__container {
   position: fixed;
   bottom: -100vh;
@@ -270,10 +315,13 @@ h3 {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: right;
-    background-image: linear-gradient(black, black), url("../img/woman-at-work.png");
+    background-image: linear-gradient(black, black), url("../img/lg/woman-at-work.png");
     background-blend-mode: saturation;
     min-height: 100vh;
     position: relative; }
+    @media screen and (max-width: 768px) {
+      .page__container .top-banner {
+        background-position: 94%; } }
     .page__container .top-banner img {
       display: none;
       top: 30%; }
@@ -286,6 +334,12 @@ h3 {
       display: none;
       top: auto;
       bottom: 3rem; }
+
+.fixed-bg {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center; }
 
 #sec2 {
   padding-top: 10rem;
@@ -308,30 +362,29 @@ h3 {
     #sec2 .content__inner h2 {
       padding-bottom: 1rem; }
   #sec2 .fixed-bg {
-    background-image: url("../img/woman-closeup.png");
+    background-image: url("../img/lg/woman-closeup.png");
     width: 60%;
     height: 60vh;
     background-attachment: unset; }
-
-.fixed-bg {
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center; }
 
 #sec3 {
   position: relative;
   height: 100vh;
   margin: 5rem 0;
-  background-image: url("../img/women-at-work.png");
+  background-image: url("../img/lg/women-at-work.png");
   top: 0;
   width: 100%;
   z-index: 0;
   background-size: cover; }
   #sec3 h3 {
     max-width: 430px;
+    width: 100%;
     color: white;
-    text-align: center; }
+    text-align: center;
+    padding: 0 3rem; }
+    @media screen and (min-width: 768px) {
+      #sec3 h3 {
+        padding: 0 2rem; } }
   #sec3 img {
     object-fit: cover;
     height: 100%;
@@ -343,7 +396,6 @@ h3 {
   margin-bottom: 5rem;
   position: relative; }
   #sec4 p {
-    width: 100%;
     max-width: 540px;
     margin-left: 50%;
     position: relative;
@@ -351,15 +403,24 @@ h3 {
     padding-bottom: 5rem;
     animation: 1.5s ease 0s 1 normal forwards running slide-up;
     opacity: 0;
-    font-size: 40px;
-    line-height: 42px; }
+    font-size: 30px;
+    line-height: 33px; }
+    @media screen and (max-width: 768px) {
+      #sec4 p {
+        padding: 0 2rem 3rem;
+        margin: unset;
+        font-size: 30px;
+        line-height: 33px; } }
   #sec4 img {
     width: 60%; }
   #sec4 .fixed-bg {
-    background-image: url("../img/woman-with-child.png");
+    background-image: url("../img/lg/woman-with-child.png");
     height: 60vh;
     width: 60%;
     background-attachment: unset; }
+    @media screen and (max-width: 768px) {
+      #sec4 .fixed-bg {
+        width: 80%; } }
 
 @keyframes slide-up {
   0% {
@@ -377,6 +438,11 @@ h3 {
     #sec5 .video video {
       max-width: 1000px;
       width: 100%; }
+      @media screen and (max-width: 768px) {
+        #sec5 .video video {
+          min-height: 80vh;
+          object-fit: cover;
+          object-position: right; } }
 
 #sec6 {
   margin-top: 5rem;
@@ -389,6 +455,9 @@ h3 {
   width: 100vw;
   height: 40vmax;
   width: 100%; }
+  @media screen and (max-width: 768px) {
+    #sec6 {
+      height: 80vh; } }
   #sec6 .grid__item-img {
     display: block;
     height: 100%;
@@ -396,6 +465,10 @@ h3 {
     #sec6 .grid__item-img canvas {
       height: 100%;
       display: inline-block; }
+      @media screen and (max-width: 768px) {
+        #sec6 .grid__item-img canvas {
+          height: 100% !important;
+          width: auto !important; } }
     #sec6 .grid__item-img img {
       height: 100%;
       display: block;
@@ -451,6 +524,12 @@ h3 {
     text-align: center;
     display: flex;
     align-items: center; }
+    @media screen and (max-width: 768px) {
+      #sec7 .circle-container .circle {
+        height: 120px;
+        width: 120px;
+        font-size: 30px;
+        line-height: 33px; } }
     #sec7 .circle-container .circle:before, #sec7 .circle-container .circle:after {
       border: 1px solid #cccccc;
       content: "";
@@ -502,11 +581,18 @@ h3 {
   #sec8 .columns {
     display: flex;
     height: 400px; }
+    @media screen and (max-width: 768px) {
+      #sec8 .columns {
+        flex-direction: column; } }
     #sec8 .columns .col__container {
       width: 50%;
       overflow: hidden;
       position: relative;
       color: white; }
+      @media screen and (max-width: 768px) {
+        #sec8 .columns .col__container {
+          width: 100%;
+          height: 200px; } }
       #sec8 .columns .col__container:hover .fixed-bg {
         transform: scale(1.2); }
       #sec8 .columns .col__container h3 {
@@ -524,8 +610,8 @@ h3 {
         transition: all 1s;
         text-decoration: none; }
         #sec8 .columns .col__container .fixed-bg.left {
-          background-image: url("../img/women-with-child.jpg"); }
+          background-image: url("../img/lg/women-with-child.jpg"); }
         #sec8 .columns .col__container .fixed-bg.right {
-          background-image: url("../img/woman-with-child.jpg"); }
+          background-image: url("../img/lg/woman-with-child.jpg"); }
 
 /*# sourceMappingURL=main.css.map */
