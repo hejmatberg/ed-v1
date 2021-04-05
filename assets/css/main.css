@@ -213,7 +213,7 @@ body {
       width: 100%;
       text-align: center;
       color: white; }
-      @media screen and (min-width: 480px) {
+      @media screen and (max-width: 480px) {
         .fr1 .inner-container h2 {
           font-size: 36px;
           line-height: 39px; } }
