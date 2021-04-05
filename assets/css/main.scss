@@ -42,6 +42,10 @@ h1{
 h2{
 	font-size:60px;
 	line-height: 60px;
+	@media screen and (max-width: $md){
+		font-size:40px;
+		line-height: 40px;
+	}
 }
 
 h3{
@@ -467,6 +471,10 @@ body{
 	min-height:80vh;
 	animation: 1.5s ease 0s 1 normal forwards running slide-up;
     opacity: 0;
+
+    @media screen and (max-width: $md){
+		flex-direction: column-reverse;
+	}
 	
 	.content__inner{
 		position: relative;
@@ -478,6 +486,9 @@ body{
 		opacity: 0;
 		h2{
 			padding-bottom:1rem;
+			@media screen and (max-width: $md){
+				padding-left: 0;
+			}
 		}		
 	}
 	.fixed-bg{
@@ -486,13 +497,19 @@ body{
 		height:60vh;
 		background-attachment: unset;
 
+		@media screen and (max-width: $md){
+			margin-left:20%;
+			margin-bottom:5rem;
+			width: 80%;
+		}
+
 	}
 }
 
 #sec3{
 	position: relative;
 	height:100vh;
-	margin: $blockpadding 0;
+	margin: $blockpadding 0 10rem;
 	background-image: url('../img/lg/women-at-work.png');
 	top:0;
 	width:100%;
@@ -505,9 +522,9 @@ body{
 		width: 100%;
 		color:white;
 		text-align: center;
-		padding: 0 $mainpadding;
+		margin: 0 $mainpadding;
 
-		@media screen and (min-width: $md){
+		@media screen and (max-width: $md){
 			padding: 0 $mobilepadding;
 		}
 	}
@@ -573,7 +590,7 @@ body{
 }
 
 #sec5{
-	padding:$blockpadding 0;
+	padding:10rem 0 $blockpadding;
 
 	.video{
 		text-align: center;

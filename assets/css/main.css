@@ -21,6 +21,10 @@ h1 {
 h2 {
   font-size: 60px;
   line-height: 60px; }
+  @media screen and (max-width: 768px) {
+    h2 {
+      font-size: 40px;
+      line-height: 40px; } }
 
 h3 {
   font-size: 40px;
@@ -351,6 +355,9 @@ body {
   min-height: 80vh;
   animation: 1.5s ease 0s 1 normal forwards running slide-up;
   opacity: 0; }
+  @media screen and (max-width: 768px) {
+    #sec2 {
+      flex-direction: column-reverse; } }
   #sec2 .content__inner {
     position: relative;
     padding-left: 3rem;
@@ -361,16 +368,24 @@ body {
     opacity: 0; }
     #sec2 .content__inner h2 {
       padding-bottom: 1rem; }
+      @media screen and (max-width: 768px) {
+        #sec2 .content__inner h2 {
+          padding-left: 0; } }
   #sec2 .fixed-bg {
     background-image: url("../img/lg/woman-closeup.png");
     width: 60%;
     height: 60vh;
     background-attachment: unset; }
+    @media screen and (max-width: 768px) {
+      #sec2 .fixed-bg {
+        margin-left: 20%;
+        margin-bottom: 5rem;
+        width: 80%; } }
 
 #sec3 {
   position: relative;
   height: 100vh;
-  margin: 5rem 0;
+  margin: 5rem 0 10rem;
   background-image: url("../img/lg/women-at-work.png");
   top: 0;
   width: 100%;
@@ -381,8 +396,8 @@ body {
     width: 100%;
     color: white;
     text-align: center;
-    padding: 0 3rem; }
-    @media screen and (min-width: 768px) {
+    margin: 0 3rem; }
+    @media screen and (max-width: 768px) {
       #sec3 h3 {
         padding: 0 2rem; } }
   #sec3 img {
@@ -432,7 +447,7 @@ body {
     -webkit-transform: translate(0px, 0px);
     transform: translate(0px, 0px); } }
 #sec5 {
-  padding: 5rem 0; }
+  padding: 10rem 0 5rem; }
   #sec5 .video {
     text-align: center; }
     #sec5 .video video {
